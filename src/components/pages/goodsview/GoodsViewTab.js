@@ -1,0 +1,16 @@
+import React, {Component} from 'react';
+
+class GoodsViewTab extends Component{
+    render(){
+        return(
+            <div className="goodsview__tab-buttons">
+                <div className="on">상세정보</div>
+                <div>리뷰</div>
+                <div>Q&A</div>
+                <div>배송/환불</div>
+            </div>
+        )
+    }
+}
+
+export default GoodsViewTab

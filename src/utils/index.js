@@ -29,7 +29,7 @@ export const getRandomNumber = (pickNum, limitNum) =>{
 
 export const loadCompleteDo = (func) =>{
     let timer = setInterval(function() {
-        if (document.readyState == 'complete') {
+        if (document.readyState === 'complete') {
             clearInterval(timer);
             func();
         }

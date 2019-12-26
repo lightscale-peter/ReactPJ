@@ -53,7 +53,6 @@ class GoodsViewDetail extends Component{
     render(){
 
         const {isMobile} = this.props;
-        let mobilePath = isMobile ? 'mobile/' : '';
 
         const {section} = this.state;
 
@@ -61,13 +60,12 @@ class GoodsViewDetail extends Component{
             switch(value.type){
                 case 'brand1':
                     return (<BrandTemplate1 value={value} key={value.key} />);
-                    break;
                 case 'image1':
                     return (<ImageTemplate1 value={value} isMobile={isMobile} key={value.key} />);
-                    break;
                 case 'video1':
                     return (<VideoTemplate1 value={value} key={value.key} />)
-                    break;
+                default:
+                    return ('섹션 없음');
             }
         });
 

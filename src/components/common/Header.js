@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Map, List} from 'immutable';
-import {isMobile} from '../../utils';
+// import {Map, List} from 'immutable';
+// import {isMobile} from '../../utils';
 import {Link} from 'react-router-dom';
 
 

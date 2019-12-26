@@ -9,7 +9,7 @@ class BrandTemplate1 extends Component{
         let clientHeight = this.brandWindow.clientHeight; // 보여지는 높이
         let scrollHeight = this.brandWindow.scrollHeight; // 실제 높이
 
-        if(clientHeight == 60){ // 
+        if(clientHeight === 60){ // 
             this.brandWindow.style.height = scrollHeight + 'px';
             this.toggleButton.classList.add('on');
         }else{ //열려있을떄

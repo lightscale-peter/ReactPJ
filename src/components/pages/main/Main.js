@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import MainTopBanner from './MainTopBanner';
 import {Loading} from '../../common';
-import {getRandomNumber, loadCompleteDo} from '../../../utils';
+import {getRandomNumber} from '../../../utils';
 
 class Main extends Component{
 

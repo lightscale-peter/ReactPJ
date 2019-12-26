@@ -5,7 +5,7 @@ const GoodsViewTemplate1 = ({isMobile, value}) =>{
     let mobilePath = isMobile ? 'mobile/' : '';
     let imgTag = value.imageNm.map((val, index)=>{
         return (
-            <img src={require(`../../../../assets/images/${mobilePath}goodsview/1000000000/${val}`)} alt="브랜드 이미지"/>
+            <img key={index} src={require(`../../../../assets/images/${mobilePath}goodsview/1000000000/${val}`)} alt="브랜드 이미지"/>
         );
     });
 

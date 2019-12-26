@@ -1,8 +1,8 @@
 import React from 'react';
 
 const VideoTemplate1 = ({value}) =>{
-    console.log('value.goodsNo', value.goodsNo);
-    console.log('value.videoNm', value.videoNm);
+    // console.log('value.goodsNo', value.goodsNo);
+    // console.log('value.videoNm', value.videoNm);
     return (
         <section className="goodsview__detail-video">
             <video poster={require(`../../../../assets/images/goodsview/${value.goodsNo}/video/${value.videoNm}.jpg`)} controls>

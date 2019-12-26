@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 const port = process.env.PORT || 8001;
 
 app.use('/', express.static(__dirname + '/build'));
+app.use('/goodsView', express.static(__dirname + '/build'));
+
 
 // app.get('/', (req, res) => {
 //     res.send('Hello JWT!!' + __dirname);

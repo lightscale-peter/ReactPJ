@@ -22,7 +22,7 @@ class Header extends Component{
 
             let scrollTop_val = document.documentElement.scrollTop;
 
-            if(scrollTop_val >= 30) scrollTop_val = 30;
+            if(scrollTop_val >= 31) scrollTop_val = 31;
 
             this.setState({
                 scrollTop: scrollTop_val

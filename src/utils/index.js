@@ -26,3 +26,12 @@ export const getRandomNumber = (pickNum, limitNum) =>{
 
     return randomArray;
 }
+
+export const loadCompleteDo = (func) =>{
+    let timer = setInterval(function() {
+        if (document.readyState == 'complete') {
+            clearInterval(timer);
+            func();
+        }
+    }, 100);
+}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MainTopBanner from './MainTopBanner';
-import {getRandomNumber} from '../../../utils';
+import {Loading} from '../../common';
+import {getRandomNumber, loadCompleteDo} from '../../../utils';
 
 class Main extends Component{
 
@@ -40,6 +41,10 @@ class Main extends Component{
         ]
     }
 
+    componentDidMount(){        
+        window.scrollTo(0, 0);
+    }
+
     shouldComponentUpdate(nextProp, nextState){
         // console.log('this.props', this.props);
         // console.log('nextProp', nextProp);
@@ -68,10 +73,11 @@ class Main extends Component{
         ));
 
         return(
-            <article className="article">
-                {list}
-            </article>
-            
+            <Loading>
+                <article className="article">
+                    {list}
+                </article>
+            </Loading>
         );
     }
 }

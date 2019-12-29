@@ -540,8 +540,10 @@ h6{
     background-color: lightgrey;
   }
 }
-.goodsview__lower-info{
-  margin-top: 30px;
+.goodsview__article{
+  // margin-top: 30px;
+  margin: 30px 0;
+  word-break: keep-all;
 }
 .goodsview-detail-brand-info-wrapper{
   border: 4px double #dcdcdc;
@@ -662,6 +664,116 @@ h6{
     display: block;
   }
 }
+.goodsview__review,
+.goodsview__policy{
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.goodsview__policy-title{
+  text-align: center;
+}
+.goodsview__policy-article{
+  margin-top: 30px;
+  & > section{
+    margin-top: 15px;
+  }
+  & > section:first-child{
+    margin-top: unset;
+  }
+}
+.goodsview__policy-sub-article{
+  margin-top: 10px;
+}
+.goodsview__policy-sub-article-table{
+  display: flex;
+  border: 1px solid black;
+  text-align: center;
+  margin: 15px 0;
+  max-width: 345px;
+
+  & > div{
+    width: 100%;
+    border-right: 1px solid black;
+    & > div{
+      border-bottom: 1px solid black;
+      padding: 5px 2px;
+      font-size: 13px;
+    }
+    & > div:last-child{
+      border-bottom: unset;
+    }
+  }
+  & > div:last-child{
+    border-right: unset;
+  }
+}
+.goodsview__review-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+.goodsview__review-write-button{
+  @extend .text-bold;
+  background-color: black;
+  color: white;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content; 
+  cursor: pointer;
+
+  & i{
+    margin-right: 5px;
+  }
+}
+.goodsview__review-sub-title{
+  padding: 5px 0;
+  font-size: 13px;
+  color: gray;
+}
+.goodsview__review-rows-wrapper{
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+.goodsview__review-row{
+  padding: 10px 0;
+}
+.goodsview__review-row-star{
+  color: orange;
+  & i{
+    font-size: 20px;
+  }
+}
+.goodsview__review-row-imgs{
+  display: flex;
+  margin-top: 10px;
+  
+}
+.goodsview__review-row-img-wrapper{
+  background-color: grey;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  &:hover{
+    filter: opacity(0.8);
+  }
+  & img{
+    width: 200%;
+  }
+}
+
+
+
 
 @media (max-width: $screen_limit){
   .desktop-only{

@@ -70,13 +70,13 @@ class GoodsViewDetail extends Component{
         });
 
         return (
-            <div className="goodsview__middle-info-wrapper">
-                <div className="goodsview__lower-info">
-                    <div className="goodsview__detail">
-                        {sections}
-                    </div>
+
+            <div className="goodsview__article">
+                <div className="goodsview__detail">
+                    {sections}
                 </div>
             </div>
+
         );  
     }
 }

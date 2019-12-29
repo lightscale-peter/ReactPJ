@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+import {elementsToArray} from '../../../utils';
+
 class GoodsViewTop extends Component{
 
     buyButton = null;
@@ -18,23 +20,13 @@ class GoodsViewTop extends Component{
         updateBuyButtonDom(this.buyButton);
     }
 
-    domToArray(dom, length){
-        let array = [];
-        
-        for(let i=0; i<length; i++){
-            array.push(dom[i]);
-        }
-
-        return array;
-    }
-
     handleOptionSelect(e){
         // console.log('e', e.currentTarget);
         e.currentTarget.classList.toggle('open');
 
         let optionDom = e.currentTarget.children;
-        let optionLength = e.currentTarget.children.length;
-        let optionArray = this.domToArray(optionDom, optionLength);
+        // let optionLength = e.currentTarget.children.length;
+        let optionArray = elementsToArray(optionDom);
 
         optionArray.forEach((val, index) => {
             val.classList.remove('on');

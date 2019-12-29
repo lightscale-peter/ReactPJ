@@ -57,7 +57,7 @@ class GoodsView extends Component{
                         toggleShowBuyInfo={toggleShowBuyInfo}
                         />
                     <GoodsViewTab handleDetailView={this.handleDetailView} />
-                    {GoodsDetail && <GoodsDetail />}
+                    {GoodsDetail && <GoodsDetail isMobile={isMobile} />}
                 </article> 
             </Loading>
         )

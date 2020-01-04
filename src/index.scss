@@ -666,7 +666,7 @@ h6{
 }
 .goodsview__review,
 .goodsview__policy{
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -712,15 +712,15 @@ h6{
 .goodsview__review-title{
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  border-bottom: 2px solid black;
-  padding-bottom: 10px;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 12px;
 }
 .goodsview__review-write-button{
   @extend .text-bold;
   background-color: black;
   color: white;
-  padding: 4px 8px;
+  padding: 5px 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -737,8 +737,8 @@ h6{
   color: gray;
 }
 .goodsview__review-rows-wrapper{
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 .goodsview__review-row{
   padding: 10px 0;
@@ -772,6 +772,62 @@ h6{
     width: 200%;
   }
 }
+
+// .goodsview__review-row-img-wrapper.on{
+//   position: fixed;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 80%;
+//   height: unset;
+//   border: unset;
+//   margin-right: unset;
+//   &:hover{
+//     filter: unset;
+//   }
+//   & img{
+//     width: 100%;
+//   }
+// }
+
+.goodsview__review-row-date{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.goodsview__review-date-id{
+  display: flex;
+  color: grey;
+  font-size: 14px;
+  & > div{
+    margin-right: 10px;
+  }
+}
+.goodsview__review-reply-like{
+  @extend .text-bold;
+  display: flex; 
+  & > div{
+    margin-left: 10px;
+  }
+}
+.goodsview__review-reply{
+  display: flex;
+  align-items: center;
+  & i{
+    margin-right:5px;
+    font-size: 20px;
+  }
+}
+.goodsview__review-like{
+  display: flex;
+  align-items: center;
+  & i{
+    margin-right:3px;
+    font-size: 28px;
+  }
+}
+
+
 
 
 

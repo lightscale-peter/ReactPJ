@@ -15,7 +15,7 @@ class GoodsView extends Component{
 
     componentDidMount(){
         window.scrollTo(0, 0);
-        this.handleDetailView('detail');
+        this.handleDetailView('review');
     }
 
     handleDetailView = (tabName) =>{

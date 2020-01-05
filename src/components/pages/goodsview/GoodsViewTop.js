@@ -49,8 +49,6 @@ class GoodsViewTop extends Component{
             autoplaySpeed: 2500
         };
 
-
-
         return(
             <div className="goodsview__upper-info-wrapper" style={{backgroundColor: backgroundColor}}>
                 <div className="goodsview__upper-info">

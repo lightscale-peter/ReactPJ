@@ -4,8 +4,9 @@ import GoodsViewReviewList from './GoodsViewReviewList';
 class GoodsViewReview extends Component{
 
     state = {
-        list: [
+        reviewList: [
             {
+                reviewNo: 0,
                 star: 3,
                 article: '다른 브랜드에는 없는 고급진 색이 마음에 들어서 구매했어요 소음이 있긴 있는데 손풍기 처음 사용해봐서 소음이 크다 작다 비교는 못하겠어요 시원하고 예쁩니다.',
                 board: 'review',
@@ -21,7 +22,11 @@ class GoodsViewReview extends Component{
 
     render(){
 
-        const {list} = this.props;
+        const {reviewList} = this.state;
+
+        const list = reviewList.map((val) => {
+            return <GoodsViewReviewList list={val} key={val.reviewNo} />;
+        });
 
         return(
             <div className="goodsview__article">
@@ -38,7 +43,7 @@ class GoodsViewReview extends Component{
                         * 리뷰를 작성해 주세요.
                     </div>
                     <div className="goodsview__review-rows-wrapper">
-                        <GoodsViewReviewList list={list}/>
+                        {list}
                     </div>
                 </div>
             </div>

@@ -1,43 +1,79 @@
 import React, {Component} from 'react';
+import Slider from "react-slick";
 
 class GoodsViewReviewList extends Component{
 
+    state = {
+        starTag : []
+    }
 
+    drawStarTag = () =>{
+        const {list} = this.props;
+        const fullStar = list.star;
+        let startTagArray = [];
+
+        for(let i=0; i<5; i++){
+            if(i < fullStar){
+                startTagArray.push(<i className="icon-star_full" key={i}></i>);
+            }else{
+                startTagArray.push(<i className="icon-star_empty" key={i}></i>);
+            }   
+        }
+        this.setState({
+            starTag: startTagArray
+        })
+    }
+
+    componentDidMount(){
+        this.drawStarTag();
+    }
 
     render(){
-
+        const {starTag} = this.state;
         const {list} = this.props;
+        const imageWrappers = list.imgs.map((val, index) => {
+            return (
+                <div className="goodsview__review-row-img-wrapper" key={index}>
+                    <img alt="reviewImg" src={require(`../../../assets/images/board/review/${val}`)} />
+                </div>
+            );
+        });
+        const images = list.imgs.map((val, index) =>{
+            return(
+                <img alt="reviewImg" src={require(`../../../assets/images/board/review/${val}`)} key={index} />
+            );
+        });
+
+
+        const settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            autoplay: false
+        };
 
         return(
             <div className="goodsview__review-row">
                 {/* 별점 */}
                 <div className="goodsview__review-row-star">
-                    <i className="icon-star_full"></i>
-                    <i className="icon-star_full"></i>
-                    <i className="icon-star_full"></i>
-                    <i className="icon-star_full"></i>
-                    <i className="icon-star_full"></i>
+                    {starTag}
                 </div>
                 {/* 내용 */}
                 <div className="goodsview__review-row-article">
-                    다른 브랜드에는 없는 고급진 색이 마음에 들어서 구매했어요 
-                    소음이 있긴 있는데 손풍기 처음 사용해봐서 소음이 크다 작다 비교는 못하겠어요 
-                    시원하고 예쁩니다
+                    {list.article}
                 </div>
                 {/* 이미지 */}
                 <div className="goodsview__review-row-imgs">
-                    <div className="goodsview__review-row-img-wrapper">
-                        <img src={require('../../../assets/images/board/review/1-2.jpg')} />
-                    </div>
-                    <div className="goodsview__review-row-img-wrapper">
-                        <img src={require('../../../assets/images/board/review/2-1.jpg')} />
-                    </div>
+                    {imageWrappers}
                 </div>
                 {/* 날짜, 댓글 추천 */}
                 <div className="goodsview__review-row-date">
                     <div className="goodsview__review-date-id">
-                        <div>2019.12.30</div>
-                        <div>bkshin</div>
+                        <div>{list.date}</div>
+                        <div>{list.wrtier}</div>
                     </div>
                     <div className="goodsview__review-reply-like">
                         <div className="goodsview__review-reply">
@@ -47,6 +83,12 @@ class GoodsViewReviewList extends Component{
                             <i className="icon-thumb"></i>0
                         </div>
                     </div>
+                </div>
+                {/* 이미지 슬라이더 실행 */}
+                <div className="goodsview__review-imgs-popup">
+                    <Slider {...settings}>
+                        {images}
+                    </Slider>
                 </div>
             </div>
         )

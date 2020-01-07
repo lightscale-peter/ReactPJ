@@ -8,9 +8,10 @@ import {Main, GoodsView} from './pages';
 class App extends Component{
 
     state = {
-        sideMenuDom: null,
-        buyButtonDom: null,
-        dimDom: null,
+        sideMenuDom: null, 
+        buyButtonDom: null, 
+        dimDom: null, 
+        popupSliderDom: null,
         isMobile: null
     }
 
@@ -32,19 +33,9 @@ class App extends Component{
         // window.removeEventListener('resize');
     }
 
-    updateSideMenuDom = (sideMenuDom) =>{
+    updateDom = (domNmae, dom) =>{
         this.setState({
-            sideMenuDom: sideMenuDom
-        });
-    }
-    updateBuyButtonDom = (buyButtonDom) =>{
-        this.setState({
-            buyButtonDom: buyButtonDom
-        });
-    }
-    updateHeaderDimDom = (dimDom) =>{
-        this.setState({
-            dimDom: dimDom
+            [domNmae]: dom
         });
     }
 
@@ -58,12 +49,18 @@ class App extends Component{
         buyButtonDom.style.height = buyButtonDom.scrollHeight + 'px';
         dimDom.classList.toggle('on');
     }
+    toggleImagesSlider = () =>{
+        const {popupSliderDom, dimDom} = this.state;
+        popupSliderDom.style.display = 'inherit';
+        dimDom.classList.toggle('on');
+    }
 
     closeDim = () =>{
-        const {sideMenuDom, buyButtonDom, dimDom} = this.state;
+        const {sideMenuDom, buyButtonDom, popupSliderDom, dimDom} = this.state;
         dimDom.classList.remove('on');
         sideMenuDom.classList.remove('on');
         buyButtonDom.style.height = 0;
+        popupSliderDom.style.display = 'none';
     }
 
     render(){
@@ -73,12 +70,12 @@ class App extends Component{
             <BrowserRouter>
                 <Header 
                     toggleSideMenu={this.toggleSideMenu}
-                    updateHeaderDimDom={this.updateHeaderDimDom} 
+                    updateDom={this.updateDom}
                     closeDim={this.closeDim}
                     />
                 <SideMenu 
                     toggleSideMenu={this.toggleSideMenu} 
-                    updateSideMenuDom={this.updateSideMenuDom}
+                    updateDom={this.updateDom}
                     />
                 <Route exact path="/">
                     <Main isMobile={isMobile} />
@@ -87,7 +84,8 @@ class App extends Component{
                     <Route path="/goodsView">
                         <GoodsView 
                             toggleShowBuyInfo={this.toggleShowBuyInfo}
-                            updateBuyButtonDom={this.updateBuyButtonDom}
+                            toggleImagesSlider={this.toggleImagesSlider}
+                            updateDom={this.updateDom}
                             isMobile={isMobile}
                             />
                     </Route>

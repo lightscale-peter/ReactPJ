@@ -47,17 +47,17 @@ class GoodsView extends Component{
 
     render(){
         const {GoodsDetail} = this.state;
-        const {updateBuyButtonDom, toggleShowBuyInfo, isMobile} = this.props;
+        const {updateDom, toggleShowBuyInfo, toggleImagesSlider, isMobile} = this.props;
 
         return(
             <Loading>
                 <article className="article">
                     <GoodsViewTop 
-                        updateBuyButtonDom={updateBuyButtonDom}
+                        updateDom={updateDom}
                         toggleShowBuyInfo={toggleShowBuyInfo}
                         />
                     <GoodsViewTab handleDetailView={this.handleDetailView} />
-                    {GoodsDetail && <GoodsDetail isMobile={isMobile} />}
+                    {GoodsDetail && <GoodsDetail isMobile={isMobile} updateDom={updateDom} toggleImagesSlider={toggleImagesSlider} />}
                 </article> 
             </Loading>
         )

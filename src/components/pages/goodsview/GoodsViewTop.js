@@ -8,7 +8,7 @@ import {elementsToArray} from '../../../utils';
 
 class GoodsViewTop extends Component{
 
-    buyButton = null;
+    buyButtonDom = null;
     selectOption = null;
 
     static defaultProps = {
@@ -16,8 +16,8 @@ class GoodsViewTop extends Component{
     }
 
     componentDidMount(){
-        const {updateBuyButtonDom} = this.props;
-        updateBuyButtonDom(this.buyButton);
+        const {updateDom} = this.props;
+        updateDom('buyButtonDom', this.buyButtonDom);
     }
 
     handleOptionSelect(e){
@@ -87,7 +87,7 @@ class GoodsViewTop extends Component{
                             애플워치를 충전할 수 있는 타입과 맥북을 충전할 수 있는 옵션이 다른 두가지 타입으로 제공됩니다. 
                             (주문시 선택)
                         </div>
-                        <div className="goodsview__upper-info-option-buybutton" ref={ref => {this.buyButton = ref}}>
+                        <div className="goodsview__upper-info-option-buybutton" ref={ref => {this.buyButtonDom = ref}}>
                             <div className="goodsview__upper-info-option-wrapper">
                                 <select className="goodsview__upper-info-select-option mobile-only" ref={ref=>{this.selectOption = ref}}>
                                     <option>타입 선택</option>

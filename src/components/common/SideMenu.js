@@ -6,8 +6,8 @@ class SideMenu extends Component{
     sideMenuDom = null;
 
     componentDidMount(){
-        const {updateSideMenuDom} = this.props;
-        updateSideMenuDom(this.sideMenuDom);
+        const {updateDom} = this.props;
+        updateDom('sideMenuDom', this.sideMenuDom);
     }
 
     render(){

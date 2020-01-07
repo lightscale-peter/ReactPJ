@@ -3,6 +3,8 @@ import Slider from "react-slick";
 
 class GoodsViewReviewList extends Component{
 
+    popupSliderDom = null;
+
     state = {
         starTag : []
     }
@@ -25,16 +27,18 @@ class GoodsViewReviewList extends Component{
     }
 
     componentDidMount(){
+        const {updateDom} = this.props;
+        updateDom('popupSliderDom', this.popupSliderDom);
         this.drawStarTag();
     }
 
     render(){
         const {starTag} = this.state;
-        const {list} = this.props;
+        const {list, toggleImagesSlider} = this.props;
         const imageWrappers = list.imgs.map((val, index) => {
             return (
                 <div className="goodsview__review-row-img-wrapper" key={index}>
-                    <img alt="reviewImg" src={require(`../../../assets/images/board/review/${val}`)} />
+                    <img alt="reviewImg" src={require(`../../../assets/images/board/review/${val}`)} onClick={toggleImagesSlider} />
                 </div>
             );
         });
@@ -85,7 +89,7 @@ class GoodsViewReviewList extends Component{
                     </div>
                 </div>
                 {/* 이미지 슬라이더 실행 */}
-                <div className="goodsview__review-imgs-popup">
+                <div className="goodsview__review-imgs-popup" ref={ref=>{this.popupSliderDom = ref}}>
                     <Slider {...settings}>
                         {images}
                     </Slider>

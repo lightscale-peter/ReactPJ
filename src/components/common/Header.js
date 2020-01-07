@@ -14,8 +14,8 @@ class Header extends Component{
 
     componentDidMount(){
         // const {scrollTop} = this.state;
-        const {updateHeaderDimDom} = this.props;
-        updateHeaderDimDom(this.dimDom);
+        const {updateDom} = this.props;
+        updateDom('dimDom', this.dimDom);
         // const self = this;
 
         window.addEventListener('scroll', ()=>{

@@ -22,10 +22,11 @@ class GoodsViewReview extends Component{
 
     render(){
 
+        const {updateDom, toggleImagesSlider} = this.props;
         const {reviewList} = this.state;
 
         const list = reviewList.map((val) => {
-            return <GoodsViewReviewList list={val} key={val.reviewNo} />;
+            return <GoodsViewReviewList list={val} key={val.reviewNo} updateDom={updateDom} toggleImagesSlider={toggleImagesSlider} />;
         });
 
         return(

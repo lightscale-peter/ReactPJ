@@ -772,16 +772,26 @@ h6{
 .goodsview__review-row-imgs{
   display: flex;
   margin-top: 10px;
-  
+  & > div{
+    width: calc(100% / 4);
+    max-width: 100px;
+    margin: 0 2.5px;
+  }
+  & > div:first-child{
+    margin-left: 0;
+  }
+  & > div:last-child{
+    margin-right: 0;
+  }
 }
 .goodsview__review-row-img-wrapper{
   background-color: grey;
-  height: 100px;
-  width: 100px;
+  // height: 100px;
+  // width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 5px;
+  // margin-right: 5px;
   overflow: hidden;
   cursor: pointer;
   border: 1px solid lightgray;

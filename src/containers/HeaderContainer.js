@@ -11,7 +11,8 @@ class HeaderContainer extends Component{
             updateDimDom,
             popupDom, 
             sideMenuDom,
-            buyButtonDom
+            buyButtonDom,
+            sliderDom
         } = this.props;
 
         return (
@@ -20,6 +21,7 @@ class HeaderContainer extends Component{
                 popupDom={popupDom} 
                 sideMenuDom={sideMenuDom} 
                 buyButtonDom={buyButtonDom} 
+                sliderDom={sliderDom}
                 />
         );
     }
@@ -29,7 +31,8 @@ class HeaderContainer extends Component{
 const mapStateToProps = (state) =>({
     popupDom: state.updateDom.popupDom,
     sideMenuDom: state.updateDom.sideMenuDom,
-    buyButtonDom: state.updateDom.buyButtonDom
+    buyButtonDom: state.updateDom.buyButtonDom,
+    sliderDom: state.updateDom.sliderDom
 
 });
 

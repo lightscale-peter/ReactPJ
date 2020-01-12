@@ -7,10 +7,10 @@ class GoodsViewReviewListContainer extends Component{
 
 
     render(){
-        const {dimDom, updatePopupDom, list} = this.props;
+        const {dimDom, updatePopupDom, updateSliderDom, list} = this.props;
 
         return (
-            <GoodsViewReviewList dimDom={dimDom} updatePopupDom={updatePopupDom} list={list} />
+            <GoodsViewReviewList dimDom={dimDom} updatePopupDom={updatePopupDom} updateSliderDom={updateSliderDom} list={list} />
         )
     }
 }
@@ -21,7 +21,8 @@ const mapStateToProps = (state) =>({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    updatePopupDom: (dom) => dispatch(updateDomActions.updatePopupDom(dom))
+    updatePopupDom: (dom) => dispatch(updateDomActions.updatePopupDom(dom)),
+    updateSliderDom: (dom) => dispatch(updateDomActions.updateSliderDom(dom))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoodsViewReviewListContainer)

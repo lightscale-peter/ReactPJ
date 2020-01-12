@@ -39,14 +39,18 @@ class GoodsViewReviewList extends Component{
         dimDom.classList.add('on');
 
         //팝업 DOM 리덕스에 전달
-        const {updatePopupDom} = this.props;
+        const {updatePopupDom, updateSliderDom} = this.props;
         updatePopupDom(this.popupSliderDom);
-
+        updateSliderDom(this.sliderDom);
+    
         //특정 페이지로 열기
         let sliderPage = e.target.parentElement.dataset.page;
         this.setState({
             pageNum: sliderPage
         });
+
+        // this.sliderDom.slickGoTo(0);
+
     }
 
     componentDidMount(){
@@ -67,22 +71,24 @@ class GoodsViewReviewList extends Component{
         });
 
     
-        const images = list.imgs.map((val, index) =>{
+        let images = list.imgs.map((val, index) =>{
             return(
                 <img alt="reviewImg" src={require(`../../../assets/images/board/review/${val}`)} key={index} />
             );
         });
 
-        images.sort((a, b) =>{
-            console.log('a', a.key);
-            console.log('b', b.key);
-
-            if(b.key == pageNum){
-                return 1
+        images.unshift(images[pageNum]);
+        images = images.filter((val, index) =>{
+            if(index !== 0 && val.key === pageNum){
+                return false;
             }else{
-                return -1;
+                return true;
             }
         });
+
+
+        console.log('imgages', images);
+
 
         const settings = {
             dots: true,

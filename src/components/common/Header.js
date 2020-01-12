@@ -48,11 +48,15 @@ class Header extends Component{
     }
 
     closeDim = () =>{
-        const {popupDom, sideMenuDom, buyButtonDom} = this.props;
+        const {popupDom, sideMenuDom, buyButtonDom, sliderDom} = this.props;
 
         this.dimDom.classList.remove('on'); //dim 없애기
-        if(popupDom !== null) 
+        if(popupDom !== null) {
             popupDom.classList.remove('on'); //팝업 끄기
+            sliderDom.slickGoTo(0);
+        }
+            
+
         sideMenuDom.classList.remove('on'); //사이드메뉴 닫기
         buyButtonDom.classList.remove('on'); // 페이크버튼 가리기
     }

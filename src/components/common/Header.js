@@ -51,14 +51,14 @@ class Header extends Component{
         const {popupDom, sideMenuDom, buyButtonDom, sliderDom} = this.props;
 
         this.dimDom.classList.remove('on'); //dim 없애기
-        if(popupDom !== null) {
+        if(popupDom !== null && sliderDom !== null) {
             popupDom.classList.remove('on'); //팝업 끄기
             sliderDom.slickGoTo(0);
         }
-            
-
-        sideMenuDom.classList.remove('on'); //사이드메뉴 닫기
-        buyButtonDom.classList.remove('on'); // 페이크버튼 가리기
+        if(sideMenuDom !== null)
+            sideMenuDom.classList.remove('on'); //사이드메뉴 닫기
+        if(buyButtonDom !== null)
+            buyButtonDom.classList.remove('on'); // 페이크버튼 가리기
     }
 
     render(){

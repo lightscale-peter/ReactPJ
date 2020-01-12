@@ -16,8 +16,8 @@ class GoodsViewTop extends Component{
     }
 
     componentDidMount(){
-        const {updateDom} = this.props;
-        updateDom('buyButtonDom', this.buyButtonDom);
+        const {updateBuyButtonDom} = this.props;
+        updateBuyButtonDom(this.buyButtonDom);
     }
 
     handleOptionSelect(e){
@@ -36,8 +36,15 @@ class GoodsViewTop extends Component{
         this.selectOption.value = e.target.dataset.value;
     }
 
+    toggleShowBuyInfo = () =>{
+        const {dimDom} = this.props;
+        // this.buyButtonDom.style.height = this.buyButtonDom.scrollHeight + 'px';
+        this.buyButtonDom.classList.add('on');
+        dimDom.classList.add('on');
+    }
+
     render(){
-        const {backgroundColor, toggleShowBuyInfo} = this.props;
+        const {backgroundColor} = this.props;
         const settings = {
             dots: true,
             infinite: true,
@@ -102,7 +109,7 @@ class GoodsViewTop extends Component{
                             </div>
                             <div className="goodsview__upper-info-buybutton">구매하기</div>
                         </div>
-                        <div className="goodsview__upper-info-fake-buybutton" onClick={toggleShowBuyInfo}>
+                        <div className="goodsview__upper-info-fake-buybutton" onClick={this.toggleShowBuyInfo}>
                             구매하기
                         </div>
                     </div>

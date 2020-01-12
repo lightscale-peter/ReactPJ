@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import Slider from "react-slick";
+import Loading from '../../common/Loading';
 
 class GoodsViewReviewList extends Component{
 
     popupSliderDom = null;
+    sliderDom = null;
 
     state = {
-        starTag : []
+        starTag : [],
+        pageNum: 0
     }
+
 
     drawStarTag = () =>{
         const {list} = this.props;
@@ -26,28 +30,59 @@ class GoodsViewReviewList extends Component{
         })
     }
 
+    openImagesSlider = (e) =>{
+        const {dimDom} = this.props;
+
+        //팝업 열기
+        this.popupSliderDom.classList.add('on');
+        
+        dimDom.classList.add('on');
+
+        //팝업 DOM 리덕스에 전달
+        const {updatePopupDom} = this.props;
+        updatePopupDom(this.popupSliderDom);
+
+        //특정 페이지로 열기
+        let sliderPage = e.target.parentElement.dataset.page;
+        this.setState({
+            pageNum: sliderPage
+        });
+    }
+
     componentDidMount(){
-        const {updateDom} = this.props;
-        updateDom('popupSliderDom', this.popupSliderDom);
         this.drawStarTag();
     }
 
     render(){
-        const {starTag} = this.state;
-        const {list, toggleImagesSlider} = this.props;
+        const {starTag, pageNum} = this.state;
+        const {list} = this.props;
+
+
         const imageWrappers = list.imgs.map((val, index) => {
             return (
-                <div className="goodsview__review-row-img-wrapper" key={index}>
-                    <img alt="reviewImg" src={require(`../../../assets/images/board/review/${val}`)} onClick={toggleImagesSlider} />
+                <div className="goodsview__review-row-img-wrapper" key={index} data-page={index}>
+                    <img alt="reviewImg" src={require(`../../../assets/images/board/review/${val}`)} onClick={this.openImagesSlider} />
                 </div>
             );
         });
+
+    
         const images = list.imgs.map((val, index) =>{
             return(
                 <img alt="reviewImg" src={require(`../../../assets/images/board/review/${val}`)} key={index} />
             );
         });
 
+        images.sort((a, b) =>{
+            console.log('a', a.key);
+            console.log('b', b.key);
+
+            if(b.key == pageNum){
+                return 1
+            }else{
+                return -1;
+            }
+        });
 
         const settings = {
             dots: true,
@@ -90,7 +125,7 @@ class GoodsViewReviewList extends Component{
                 </div>
                 {/* 이미지 슬라이더 실행 */}
                 <div className="goodsview__review-imgs-popup" ref={ref=>{this.popupSliderDom = ref}}>
-                    <Slider {...settings}>
+                    <Slider {...settings} ref={sliderDom =>{this.sliderDom = sliderDom}}>
                         {images}
                     </Slider>
                 </div>

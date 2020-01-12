@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import GoodsViewReviewList from './GoodsViewReviewList';
+import GoodsViewReviewListContainer from '../../../containers/GoodsViewReviewListContainer';
 
 class GoodsViewReview extends Component{
 
@@ -21,12 +21,10 @@ class GoodsViewReview extends Component{
     }
 
     render(){
-
-        const {updateDom, toggleImagesSlider} = this.props;
         const {reviewList} = this.state;
 
         const list = reviewList.map((val) => {
-            return <GoodsViewReviewList list={val} key={val.reviewNo} updateDom={updateDom} toggleImagesSlider={toggleImagesSlider} />;
+            return <GoodsViewReviewListContainer list={val} key={val.reviewNo} />;
         });
 
         return(

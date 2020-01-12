@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 
 import {asyncComponent} from '../../../utils'
 
-import GoodsViewTop from './GoodsViewTop';
+// import GoodsViewTop from './GoodsViewTop';
 import GoodsViewTab from './GoodsViewTab';
 import {Loading} from '../../common';
 
+import GoodsViewTopContainer from '../../../containers/GoodsViewTopContainer';
 
 class GoodsView extends Component{
 
@@ -47,17 +48,14 @@ class GoodsView extends Component{
 
     render(){
         const {GoodsDetail} = this.state;
-        const {updateDom, toggleShowBuyInfo, toggleImagesSlider, isMobile} = this.props;
+        const {isMobile} = this.props;
 
         return(
             <Loading>
                 <article className="article">
-                    <GoodsViewTop 
-                        updateDom={updateDom}
-                        toggleShowBuyInfo={toggleShowBuyInfo}
-                        />
+                    <GoodsViewTopContainer />
                     <GoodsViewTab handleDetailView={this.handleDetailView} />
-                    {GoodsDetail && <GoodsDetail isMobile={isMobile} updateDom={updateDom} toggleImagesSlider={toggleImagesSlider} />}
+                    {GoodsDetail && <GoodsDetail isMobile={isMobile}  />}
                 </article> 
             </Loading>
         )

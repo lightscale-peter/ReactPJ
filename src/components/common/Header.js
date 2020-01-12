@@ -13,10 +13,9 @@ class Header extends Component{
     dimDom = null;
 
     componentDidMount(){
-        // const {scrollTop} = this.state;
-        const {updateDom} = this.props;
-        updateDom('dimDom', this.dimDom);
-        // const self = this;
+
+        const {updateDimDom} = this.props;
+        updateDimDom(this.dimDom);
 
         window.addEventListener('scroll', ()=>{
 
@@ -34,10 +33,32 @@ class Header extends Component{
         window.removeEventListener('scroll');
     }
 
-    render(){
+    shouldComponentUpdate(nextProps, nextState){
+        if(this.state.scrollTop === nextState.scrollTop){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
+    openSideMenu = () =>{
+        const {sideMenuDom} = this.props;
+        sideMenuDom.classList.add('on');
+        this.dimDom.classList.add('on');
+    }
+
+    closeDim = () =>{
+        const {popupDom, sideMenuDom, buyButtonDom} = this.props;
+
+        this.dimDom.classList.remove('on'); //dim 없애기
+        if(popupDom !== null) 
+            popupDom.classList.remove('on'); //팝업 끄기
+        sideMenuDom.classList.remove('on'); //사이드메뉴 닫기
+        buyButtonDom.classList.remove('on'); // 페이크버튼 가리기
+    }
+
+    render(){
         const {scrollTop} = this.state;
-        const {toggleSideMenu, closeDim} = this.props;
 
         return (
             <header className="header" style={{top: scrollTop * -1 + 'px'}}>
@@ -47,7 +68,7 @@ class Header extends Component{
                 <div className="header__logo-menu-wrapper">
                     <div className="header__logo-menu">
                         <div className="header__mobile-menu">
-                            <img onClick={toggleSideMenu} className="header_mobile-menu-img" src={require('../../assets/images/common/ico_all.png')} alt="메뉴아이콘" />
+                            <img onClick={this.openSideMenu} className="header_mobile-menu-img" src={require('../../assets/images/common/ico_all.png')} alt="메뉴아이콘" />
                         </div>
                         <div className="header__colb-logo">
                             <Link to="/">
@@ -82,7 +103,7 @@ class Header extends Component{
                         <div>Brands</div>
                     </div>
                 </div>
-                <div className="header__dim" ref={ref => {this.dimDom = ref}} onClick={closeDim}></div>
+                <div className="header__dim" ref={ref => {this.dimDom = ref}} onClick={this.closeDim}></div>
             </header>
         )
     }

@@ -5,18 +5,25 @@ class SideMenu extends Component{
     // dim = null;
     sideMenuDom = null;
 
-    componentDidMount(){
-        const {updateDom} = this.props;
-        updateDom('sideMenuDom', this.sideMenuDom);
+    toggleSideMenu = () =>{
+        console.log('dsdfssdf');
+        const {dimDom} = this.props;
+        dimDom.classList.toggle('on');
+        this.sideMenuDom.classList.toggle('on');
+        
     }
 
+    componentDidMount(){
+        const {updateSideMenuDom} = this.props;
+        updateSideMenuDom(this.sideMenuDom);
+    }
+1
     render(){
-        const {toggleSideMenu} = this.props;
         
         return(
             <div className="sidemenu">
                 <div className="sidemenu__article" ref={ref => {this.sideMenuDom = ref}}>
-                    <div className="sidemenu__article-close-button" onClick={toggleSideMenu}>
+                    <div className="sidemenu__article-close-button" onClick={this.toggleSideMenu}>
                         <img src={require('../../assets/images/common/ico_close.png')} alt="닫기" />
                     </div>
                     {/* X아이콘 */}

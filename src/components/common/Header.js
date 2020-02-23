@@ -112,7 +112,6 @@ class Header extends Component{
                     </div>
                 </div>
                 <div className="header__dim" ref={ref => {this.dimDom = ref}} onClick={this.closeDim}></div>
-                <div className="header__native-back-button" onClick={this.goBackForNative}>〈&nbsp;&nbsp;&nbsp;</div>
                 {
                     window.webViewBridge && (<div className="header__native-back-button" onClick={this.goBackForNative}>〈&nbsp;&nbsp;&nbsp;</div>)
 

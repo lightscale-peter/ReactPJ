@@ -188,6 +188,21 @@ h6{
   max-width: 1280px;
   margin: 0 auto;
 }
+.header__native-back-button{
+  position: fixed;
+  left: 40px;
+  bottom: 40px;
+  background-color: white;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+  cursor: pointer;
+}
+
+
 .footer__about-subscribe-sns{
   background-color: black;
   color: white;

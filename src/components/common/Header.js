@@ -61,6 +61,10 @@ class Header extends Component{
             buyButtonDom.classList.remove('on'); // 페이크버튼 가리기
     }
 
+    goBackForNative = () =>{
+        window.webViewBridge.goBack();
+    }
+
     render(){
         const {scrollTop} = this.state;
 
@@ -108,6 +112,11 @@ class Header extends Component{
                     </div>
                 </div>
                 <div className="header__dim" ref={ref => {this.dimDom = ref}} onClick={this.closeDim}></div>
+                {
+                    window.webViewBridge && (<div className="header__native-back-button" onClick={this.goBackForNative}>〈&nbsp;&nbsp;&nbsp;</div>)
+
+                }
+                
             </header>
         )
     }

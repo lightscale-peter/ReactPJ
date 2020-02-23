@@ -1,2 +1,0 @@
-(window.webpackJsonpgoowoo2=window.webpackJsonpgoowoo2||[]).push([[6],{174:function(e,n,t){"use strict";t.r(n);var o=t(1),a=t(2),c=t(4),i=t(3),r=t(5),u=t(0),s=t.n(u),w=function(e){function n(){return Object(o.a)(this,n),Object(c.a)(this,Object(i.a)(n).apply(this,arguments))}return Object(r.a)(n,e),Object(a.a)(n,[{key:"render",value:function(){return s.a.createElement("div",null,"GoodsViewQna")}}]),n}(u.Component);n.default=w}}]);
-//# sourceMappingURL=6.c2586561.chunk.js.map

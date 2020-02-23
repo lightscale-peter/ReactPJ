@@ -7,6 +7,7 @@ import {Main, GoodsView} from './pages';
 
 import HeaderContainer from '../containers/HeaderContainer';
 import SideMenuContainer from '../containers/SideMenuContainer';
+import webviewBridge from '../utils/webviewBridge';
 
 
 
